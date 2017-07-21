@@ -1,0 +1,74 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body onload='outputEmployes()'>
+  <script>
+    var employees = [
+      {"name":"Bill Green","email":"bill.green@gmail.com","img" :"https://upload.wikimedia.org/wikipedia/commons/b/b5/FrodeBergum.png", "Attribution" : "By Bikkebakke (Own work) [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0) or GFDL (http://www.gnu.org/copyleft/fdl.html)], via Wikimedia Commons"},
+      {"name":"Thomas Blue","email":"thomas.blue@gmail.com","img" :"https://upload.wikimedia.org/wikipedia/commons/0/0b/Harvett_Fox.png", "Attribution" : "By Jayvee Enaguas (HarvettFox96) (Own work) [CC BY 3.0 (http://creativecommons.org/licenses/by/3.0) or CC BY 4.0 (http://creativecommons.org/licenses/by/4.0)], via Wikimedia Commons"},
+      {"name":"Victoria Müller","email":"victoria.mueller@gmx.at","img" : "https://upload.wikimedia.org/wikipedia/commons/b/b4/Arlinta_Vixen.png", "Attribution" : "By Jayvee Enaguas (HarvettFox96) (Own work) [CC BY 3.0 (http://creativecommons.org/licenses/by/3.0) or CC BY 4.0 (http://creativecommons.org/licenses/by/4.0)], via Wikimedia Commons"},
+      {"name":"Herbert Rot","email":"herbert.rot@yahoo.com","img" :"https://upload.wikimedia.org/wikipedia/commons/2/21/Avatar_pagina_de_usuario.svg","Attribution" : "By Cheposo (Own work) [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons"},
+      {"name":"Manfred Herbert","email":"manfred.herbert@yahoo.com","img" :"https://upload.wikimedia.org/wikipedia/commons/d/d9/Zambaweb2_1.jpg", "Attribution" :"By El Perro en la Luna (Own work) [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons"},
+      {"name":"Kathie Yellow", "email" : "katie.yellow@hotmail.com","img" :"https://upload.wikimedia.org/wikipedia/commons/5/5a/Salvor-kona.svg","Attribution":"By No machine-readable author provided. Salvor assumed (based on copyright claims). [Public domain], via Wikimedia Commons"},
+    ];
+    function outputEmployes(){
+      counter = 0;
+      while(counter < employees.length){
+        divTag = '<div class="profilItem">'
+          divTagProfilItemFlex = '<div class="profilItemFlex">';
+          aTagName  ='<a class="name">'+ employees[counter].name + '</a>';
+          aTagEmail  ='<a class="mail">'+ employees[counter].email + '</a>';
+          imgTag = '<img src=' + employees[counter].img + '>';
+          divTagProfilItemFlex+=imgTag;
+          divTagProfilItemFlex+=aTagName;
+          divTagProfilItemFlex+=aTagEmail;
+          divTagProfilItemFlex +='</div>';
+          divTag+=divTagProfilItemFlex;
+        divTag += '</div>';
+        document.getElementById('contentFlex').innerHTML += divTag;
+        counter = counter + 1
+      }
+
+    }
+  </script>
+  <div id='container'>
+  <header>
+    <h1>Flix Car Insurance</h1>
+  </header>
+  <nav>
+    <div id='navFlex'>
+      <a href='index.html'>Team</a>
+      <a href='locations.html'>Locations</a>
+      <a href='insuranceCalc.html'>Calc Insurance</a>
+    </div>
+  </nav>
+  <content>
+    <div id='contentFlex'>
+
+    </div>
+  </content>
+  <footer>&copy; Thomas Mandorfer</footer>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

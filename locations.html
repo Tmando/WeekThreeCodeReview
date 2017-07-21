@@ -1,0 +1,121 @@
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload='addLocations();'>
+  <script>
+    var locations = [{
+          "name": "Flix Car Insurance Linz",
+          "lat": 48.30694,
+          "long": 14.28583,
+          "weekendOpen":"true"
+        },
+        {
+          "name": "Flix Car Insurance Graz",
+          "lat": 47.070714,
+          "long": 15.439504,
+          "weekendOpen": "false"
+        },
+        {
+          "name": "Flix Car Insurance Salzburg",
+          "lat": 47.80949,
+          "long": 13.05501,
+          "weekendOpen" : "true"
+        },
+        {
+          "name": "Flix Car Insurance Innsbruck",
+          "lat": 47.2692124,
+          "long": 11.4041024,
+          "weekendOpen": "true"
+        },
+        {
+          "name": "Flix Car Insurance Vienna",
+          "lat": 48.2081743,
+          "long" : 16.3738189,
+          "weekendOpen" : "true"}];
+
+          function addLocations() {
+            divTagLocationName = '<div class="locationName">' + 'Name' + '</div>';
+            divTagKoordinates = '<div class="locationCoordinates">' + 'Coordinates' + '</div>';
+            divTagWeekEndOpen = '<div class="weekEndOpen">' + 'Weekend Open' + '</div>';
+            document.getElementById('contentLocationFlex').innerHTML += divTagLocationName;
+            document.getElementById('contentLocationFlex').innerHTML += divTagKoordinates;
+            document.getElementById('contentLocationFlex').innerHTML += divTagWeekEndOpen;
+            for (i = 0; i < locations.length; i++) {
+              divTagLocationName = '<div class="locationName">' + locations[i].name + '</div>';
+              divTagKoordinates = '<div class="locationCoordinates">' + '(' + locations[i].lat + ',' + locations[i].long + ')' + '</div>';
+              divTagWeekEndOpen = '<div class="weekEndOpen">' + locations[i].weekendOpen + '</div>';
+              document.getElementById('contentLocationFlex').innerHTML += divTagLocationName;
+              document.getElementById('contentLocationFlex').innerHTML += divTagKoordinates;
+              document.getElementById('contentLocationFlex').innerHTML += divTagWeekEndOpen;
+            }
+          }
+          function initMap() {
+            var myLatLng = {lat: 47.076668, lng: 13.033229};
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 6,
+              center: myLatLng
+            });
+            markerArray=[];
+            for(i=0;i<locations.length;i++){
+              try{
+                if(isNaN(locations[i].lat) || isNaN(locations[i].long)){
+                    throw 'Not a number';
+                }
+                var myLatLng = {lat: locations[i].lat, lng: locations[i].long};
+                var marker = new google.maps.Marker({
+                    position: myLatLng,
+                    map: map,
+                    title: locations[i].name
+                });
+
+
+              }catch(err){
+                document.write(e);
+              }
+            }
+      }
+
+  </script>
+  <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB354KVzn-lG2xR5CTaT2a9phbE6NOz6lM&callback=initMap">
+  </script>
+  <div id='container'>
+    <header>
+      <h1>Flix Car Insurance</h1>
+    </header>
+    <nav>
+      <div id='navFlex'>
+        <a href='index.html'>Team</a>
+        <a href='locations.html'>Locations</a>
+        <a href='insuranceCalc.html'>Calc Insurance</a>
+      </div>
+    </nav>
+    <content>
+      <div id="contentLocationFlex">
+
+      </div>
+      <div id="map">
+
+      </div>
+
+    </content>
+    <footer>&copy; Thomas Mandorfer</footer>
+  </div>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+@import url('https://fonts.googleapis.com/css?family=Droid+Serif');
+/* styles all sites */
+#container{
+  display: flex;
+  flex-direction: column;
+}
+footer{
+  color:white;
+}
+body{
+  font-family: 'Droid Serif', serif;
+}
+header{
+  flex-basis: 15vh;
+  background-color: #CCB6B3;
+  width:100vw;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+}
+nav{
+  flex-basis: 5vh;
+  background-color: #597299;
+  width:100vw;
+}
+nav a{
+  color:black;
+  text-decoration: none;
+  margin-left:1vw;
+}
+nav a:hover{
+  background-color:white;
+}
+content{
+  flex-basis: 70vh;
+  background-color: #E9EBEE;
+  width:100vw;
+}
+footer{
+ flex-basis: 10vh;
+ background-color: black;
+ width:100vw;
+}
+/* styles index.html */
+
+#contentFlex{
+  display: flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+}
+.profilItem{
+  flex-basis:20vw;
+  margin-right: 5vw;
+  margin-left: 5vw;
+  margin-top: 5vh;
+}
+.profilItemFlex{
+  display: flex;
+  flex-direction: column;
+  flex-wrap:wrap;
+}
+.profilItemFlex img{
+  max-width:8vw;
+}
+
+/* styles locations.html */
+
+@media screen and (max-width: 360px) {
+  .locationName {
+    font-size:2vw;
+  }
+
+  .locationCoordinates {
+    font-size:2vw;
+  }
+
+  .weekEndOpen {
+    font-size:2vw;
+  }
+  #map{
+    margin-top:5vh;
+    width:100vw;
+  }
+}
+#contentLocationFlex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.locationName {
+  flex-basis: 33vw;
+}
+
+.locationCoordinates {
+  flex-basis: 33vw;
+}
+
+.weekEndOpen {
+  flex-basis: 33vw;
+}
+#map{
+  height:40vh;
+  width: 80vw;
+  margin-left: 5vw;
+}
+@media screen and (min-width: 768px) {
+  #map{
+    height:40vh;
+    width: 80vw;
+    margin-left: 5vw;
+    margin-top: 7vh;
+  }
+}
+/* styles  insurance Calc*/
+#form{
+  margin-left: 2vw;
+}
+#outputRes{
+  font-family: 'Indie Flower',cursive;
+  font-size: 4vw;
+}
+@media screen and (max-width: 360px) {
+  #outputRes{
+    font-family: 'Indie Flower',cursive;
+    font-size: 10vw;
+  }
+}
