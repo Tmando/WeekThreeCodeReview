@@ -5,6 +5,7 @@
 </head>
 <body onload='outputEmployes()'>
   <script>
+    //Array of employee
     var employees = [
       {"name":"Bill Green","email":"bill.green@gmail.com","img" :"https://upload.wikimedia.org/wikipedia/commons/b/b5/FrodeBergum.png", "Attribution" : "By Bikkebakke (Own work) [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0) or GFDL (http://www.gnu.org/copyleft/fdl.html)], via Wikimedia Commons"},
       {"name":"Thomas Blue","email":"thomas.blue@gmail.com","img" :"https://upload.wikimedia.org/wikipedia/commons/0/0b/Harvett_Fox.png", "Attribution" : "By Jayvee Enaguas (HarvettFox96) (Own work) [CC BY 3.0 (http://creativecommons.org/licenses/by/3.0) or CC BY 4.0 (http://creativecommons.org/licenses/by/4.0)], via Wikimedia Commons"},
@@ -13,6 +14,7 @@
       {"name":"Manfred Herbert","email":"manfred.herbert@yahoo.com","img" :"https://upload.wikimedia.org/wikipedia/commons/d/d9/Zambaweb2_1.jpg", "Attribution" :"By El Perro en la Luna (Own work) [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons"},
       {"name":"Kathie Yellow", "email" : "katie.yellow@hotmail.com","img" :"https://upload.wikimedia.org/wikipedia/commons/5/5a/Salvor-kona.svg","Attribution":"By No machine-readable author provided. Salvor assumed (based on copyright claims). [Public domain], via Wikimedia Commons"},
     ];
+    // This function reads every entry and creates new div Tags. The div Tags will be append to the contentFlex container.
     function outputEmployes(){
       counter = 0;
       while(counter < employees.length){
@@ -20,8 +22,11 @@
           divTagProfilItemFlex = '<div class="profilItemFlex">';
           aTagName  ='<a class="name">'+ employees[counter].name + '</a>';
           aTagEmail  ='<a class="mail">'+ employees[counter].email + '</a>';
+          aTagAttribution ='<a' +" title="+ '\"' + employees[counter].Attribution + '\"' + '>';
           imgTag = '<img src=' + employees[counter].img + '>';
-          divTagProfilItemFlex+=imgTag;
+          aTagAttribution +=imgTag;
+          aTagAttribution += '</a>';
+          divTagProfilItemFlex+=aTagAttribution;
           divTagProfilItemFlex+=aTagName;
           divTagProfilItemFlex+=aTagEmail;
           divTagProfilItemFlex +='</div>';

@@ -1,135 +1,139 @@
 <html>
+
 <head>
   <meta charset="utf-8" />
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <script>
-    class Car{
-      constructor(name,age,gender,origin,horsepower){
-        try{
-          if(!(typeof name === 'string')){
+    // the Car Class with the data and methods.
+    class Car {
+      constructor(name, age, gender, origin, horsepower) {
+        try {
+          if (!(typeof name === 'string')) {
             throw 'name is not str';
-          }else if(isNaN(age)){
+          } else if (isNaN(age)) {
             throw 'name is not a number';
-          }else if(!(typeof gender === 'string')){
+          } else if (!(typeof gender === 'string')) {
             throw 'gender is not a string';
-          }else if(!(typeof origin === 'string')){
+          } else if (!(typeof origin === 'string')) {
             throw 'origin is not a string';
-          }else if(isNaN(horsepower)){
+          } else if (isNaN(horsepower)) {
             throw 'origin is not a string';
           }
-          this.name=name;
+          this.name = name;
           this.age = age;
           this.gender = gender;
           this.origin = origin;
           this.horsepower = horsepower;
-        }catch(err){
+        } catch (err) {
           document.write(err);
 
         }
       }
-      getName(){
+      getName() {
         return this.name;
       }
-      getAge(){
+      getAge() {
         return this.age;
       }
-      getGender(){
+      getGender() {
         return this.gender;
       }
-      getOrigin(){
+      getOrigin() {
         return this.origin;
       }
-      getHorsePower(){
+      getHorsePower() {
         return this.horsepower;
       }
-      setName(name){
+      setName(name) {
         this.name = name;
       }
-      setAge(age){
+      setAge(age) {
         this.age = age;
       }
-      setGender(gender){
+      setGender(gender) {
         this.gender = gender;
       }
-      setOrigin(origin){
+      setOrigin(origin) {
         this.origin = origin;
       }
-      setHorsePower(horsepower){
+      setHorsePower(horsepower) {
         this.horsepower = horsepower;
       }
 
     }
-    var calcOffer = function(name,age,gender,origin,horsepower){
-      myCar = new Car(name,age,gender,origin,horsepower);
+
+    // This function calculates the offer.
+    var calcOffer = function(name, age, gender, origin, horsepower) {
+      myCar = new Car(name, age, gender, origin, horsepower);
       console.log(myCar);
       startVal = 500;
-      if(myCar.getGender() == 'male'){
-        startVal += (startVal*0.05);
-      }else{
-        startVal -= (startVal*0.05);
+      if (myCar.getGender() == 'male') {
+        startVal += (startVal * 0.05);
+      } else {
+        startVal -= (startVal * 0.05);
       }
-      startVal += myCar.getAge()*0.01;
+      startVal += myCar.getAge() * 0.01;
       origin = myCar.getOrigin();
       switch (origin) {
         case 'germany':
-          startVal += (startVal*0.2);
+          startVal += (startVal * 0.2);
           break;
         case 'italy':
-            startVal -= (startVal*0.2);
-            break;
+          startVal -= (startVal * 0.2);
+          break;
         case 'austria':
-            startVal += (startVal*0.1);
-            break;
+          startVal += (startVal * 0.1);
+          break;
         case 'switzerland':
-            startVal += (startVal*0.15);
-            break;
+          startVal += (startVal * 0.15);
+          break;
 
       }
-      startVal += myCar.getHorsePower()*0.05;
+      startVal += myCar.getHorsePower() * 0.05;
       return startVal;
 
     }
-    function inputVal(){
-      res = calcOffer(document.getElementById('formName').value,document.getElementById('formAge').value,document.getElementById('formGenderSelect').value,document.getElementById('formOriginSelect').value,document.getElementById('formHorsePower').value);
+
+    function inputVal() {
+      res = calcOffer(document.getElementById('formName').value, document.getElementById('formAge').value, document.getElementById('formGenderSelect').value, document.getElementById('formOriginSelect').value, document.getElementById('formHorsePower')
+        .value);
       document.getElementById('outputRes').innerHTML = 'Result: ' + Math.round(res).toFixed(2) + '€';
     }
-
-
-
   </script>
   <div id='container'>
-  <header>
-    <h1>Flix Car Insurance</h1>
-  </header>
-  <nav>
-    <a href='index.html'>Team</a>
-    <a href='locations.html'>Locations</a>
-    <a href='insuranceCalc.html'>Calc Insurance</a>
-  </nav>
-  <content>
-    <div id='form'>
-      <p>Name: <input type="text" id='formName'></p>
-      <p>Age: <input type="number" id='formAge'></p>
-      <p>Gender:  <select id='formGenderSelect'>
+    <header>
+      <h1>Flix Car Insurance</h1>
+    </header>
+    <nav>
+      <a href='index.html'>Team</a>
+      <a href='locations.html'>Locations</a>
+      <a href='insuranceCalc.html'>Calc Insurance</a>
+    </nav>
+    <content>
+      <div id='form'>
+        <p>Name: <input type="text" id='formName'></p>
+        <p>Age: <input type="number" id='formAge'></p>
+        <p>Gender: <select id='formGenderSelect'>
         <option value="male">Male</option>
         <option value="female">Female</option>
       </select></p>
-      <p>Origin:
-        <select id='formOriginSelect'>
+        <p>Origin:
+          <select id='formOriginSelect'>
           <option value="germany">Germany</option>
           <option value="italy">Italy</option>
           <option value="austria">Austria</option>
           <option value="switzerland">Switzerland</option>
         </select>
-      </p>
-      <p>Horsepower: <input type="number" id='formHorsePower'></p>
-      <p><button onclick='inputVal();'>Submit</button></p>
-      <p id='outputRes'></p>
+        </p>
+        <p>Horsepower: <input type="number" id='formHorsePower'></p>
+        <p><button onclick='inputVal();'>Submit</button></p>
+        <p id='outputRes'></p>
       </div>
-  </content>
-  <footer>&copy; Thomas Mandorfer</footer>
+    </content>
+    <footer>&copy; Thomas Mandorfer</footer>
   </div>
 
 
@@ -141,14 +145,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
 </body>
+
 </html>

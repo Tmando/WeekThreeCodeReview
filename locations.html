@@ -7,6 +7,7 @@
 
 <body onload='addLocations();'>
   <script>
+    // location Array with the locations of the office
     var locations = [{
           "name": "Flix Car Insurance Linz",
           "lat": 48.30694,
@@ -37,6 +38,8 @@
           "long" : 16.3738189,
           "weekendOpen" : "true"}];
 
+
+          // This function creates a table out of the location array
           function addLocations() {
             divTagLocationName = '<div class="locationName">' + 'Name' + '</div>';
             divTagKoordinates = '<div class="locationCoordinates">' + 'Coordinates' + '</div>';
@@ -53,6 +56,7 @@
               document.getElementById('contentLocationFlex').innerHTML += divTagWeekEndOpen;
             }
           }
+          // The init Map function creates Markers and append this markes to a google Map.
           function initMap() {
             var myLatLng = {lat: 47.076668, lng: 13.033229};
 
